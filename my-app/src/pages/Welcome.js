@@ -11,8 +11,15 @@ const Welcome = () => {
           <p className="text-white text-[28px] ml-2">Train like a pro</p>
         </div>
       </div>
-      <div className="mb-10">
-        <img src={centerImage} alt="centerImage" />
+      <div className="mb-24 grid">
+        <img
+          src={centerImage}
+          alt="centerImage"
+          className="col-start-1 col-end-1 row-start-1 row-end-1"
+        />
+        <button className="buttonStyle ml-auto pl-10 pr-10 mr-[-10px] text-[28px] col-start-1 col-end-1 row-start-1 row-end-1 self-end mb-[-30px] z-10">
+          Start Training
+        </button>
       </div>
     </section>
   );
