@@ -3,7 +3,7 @@ import Welcome from "./pages/Welcome";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App font-Arial">
       <Welcome></Welcome>
     </div>
   );

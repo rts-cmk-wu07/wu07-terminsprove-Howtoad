@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-Arial {
+  font-family: Arial, sans-serif;
+}
+
+.buttonStyle {
+  @apply h-12 text-black bg-white flex items-center justify-center rounded-lg py-8;
+}
