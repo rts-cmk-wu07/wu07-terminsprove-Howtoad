@@ -1,5 +1,8 @@
 import centerImage from "../assets/welcomeCENTER.jpg";
+import { useNavigate } from "react-router-dom";
 const Welcome = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="bg-[url('./assets/welcomeBG.jpg')] w-screen h-screen bg-cover bg-no-repeat bg-center flex justify-end flex-col">
       <div className=" h-fit mb-10">
@@ -17,7 +20,10 @@ const Welcome = () => {
           alt="centerImage"
           className="col-start-1 col-end-1 row-start-1 row-end-1"
         />
-        <button className="buttonStyle ml-auto pl-10 pr-10 mr-[-10px] text-[28px] col-start-1 col-end-1 row-start-1 row-end-1 self-end mb-[-30px] z-10">
+        <button
+          className="buttonStyle ml-auto pl-10 pr-10 mr-[-10px] text-[28px] col-start-1 col-end-1 row-start-1 row-end-1 self-end mb-[-30px] z-10"
+          onClick={() => navigate("/home")}
+        >
           Start Training
         </button>
       </div>
