@@ -4,6 +4,7 @@ import { useState } from "react";
 import Login from "./Login";
 const MobileNav = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -40,10 +41,12 @@ const MobileNav = ({ children }) => {
               <div className=" text-[28px] mb-8 mt-32">Home</div>
               <div className=" text-[28px] mb-8">Search</div>
               <div className=" text-[28px] mb-8">My Schedule</div>
-              <div className=" text-[28px]">Log in</div>
+              <div className=" text-[28px]" onClick={() => setIsOpen(true)}>
+                Log in
+              </div>
             </div>
           </div>
-          <Login />
+          <Login isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       )}
     </>
