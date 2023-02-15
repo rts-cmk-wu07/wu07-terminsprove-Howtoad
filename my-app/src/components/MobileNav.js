@@ -12,7 +12,7 @@ const MobileNav = ({ children }) => {
     <>
       <div className="flex items-center">
         <div
-          className="cursor-pointer pt-10 pl-4"
+          className="cursor-pointer pt-10"
           onClick={() => window.history.back()}
         >
           <IoTriangle className="text-slight-grey" size={30} />
@@ -20,7 +20,7 @@ const MobileNav = ({ children }) => {
         <div className="flex-1 text-center text-gray-700 text-[28px]">
           {children}
         </div>
-        <div className="cursor-pointer pt-10 pr-6" onClick={toggleMenu}>
+        <div className="cursor-pointer pt-10 " onClick={toggleMenu}>
           <HiBars3BottomRight
             className="text-slight-grey font-bold"
             size={30}
@@ -29,7 +29,7 @@ const MobileNav = ({ children }) => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="fixed inset-0 h-screen w-screen bg-white">
+        <div className="fixed inset-0 h-screen w-screen bg-white z-30">
           <div className="relative">
             <div
               className="cursor-pointer absolute top-0 right-0 pt-10 pr-6"

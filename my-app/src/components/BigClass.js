@@ -24,7 +24,7 @@ const BigClass = () => {
   }, [classes]);
 
   return (
-    <div className="mx-4 mt-4">
+    <div className="mt-4 drop-shadow-xl">
       {randomPrintedClass.asset && (
         <div
           className="bg-cover h-96 rounded-2xl bg-center flex"
