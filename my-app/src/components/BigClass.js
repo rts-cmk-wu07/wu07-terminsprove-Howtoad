@@ -32,6 +32,7 @@ const BigClass = () => {
             <img
               src={randomPrintedClass.asset.url}
               className="h-96 rounded-2xl object-cover"
+              alt="cover"
             />
             <h1 className="text-white text-[50px] ml-4 absolute bottom-4">
               {randomPrintedClass.className}

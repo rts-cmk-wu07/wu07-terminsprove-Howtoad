@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import RatingClass from "./RatingClass";
 import Schedule from "./Schedule";
+import TrainerCard from "./TrainerCard";
 
 const ClassDetails = () => {
   const { id } = useParams();
@@ -41,6 +42,7 @@ const ClassDetails = () => {
             <img
               src={data.asset.url}
               className="h-96 w-full object-cover"
+              alt="cover"
             ></img>
           </div>
           <div className="mx-5 mt-2">
@@ -49,8 +51,12 @@ const ClassDetails = () => {
               <p className="text-[22px]">{data.classDay}</p>
               <p className="ml-auto text-[22px]">{data.classTime}</p>
             </Schedule>
-            <div className="mt-10">
+            <div className="mt-8">
               <p className="text-[28px]">{data.classDescription}</p>
+            </div>
+            <div className="mt-10 mb-16">
+              <h3 className="text-[28px]">Trainer</h3>
+              <TrainerCard trainerId={data.trainer.id} />
             </div>
           </div>
         </>

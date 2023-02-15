@@ -31,6 +31,7 @@ const SmallClass = () => {
             <img
               src={item.asset.url}
               className="bg-cover h-[150px] w-[150px] rounded-xl bg-center mt-10"
+              alt="cover"
             ></img>
             <div className="max-w-[110px]">
               <p className="text-[22px] truncate mt-1">{item.className}</p>
