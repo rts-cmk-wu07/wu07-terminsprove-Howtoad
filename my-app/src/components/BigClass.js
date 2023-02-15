@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const BigClass = () => {
   const [classes, setClasses] = useState([]);
@@ -24,18 +25,22 @@ const BigClass = () => {
   }, [classes]);
 
   return (
-    <div className="mt-4 drop-shadow-xl">
-      {randomPrintedClass.asset && (
-        <div
-          className="bg-cover h-96 rounded-2xl bg-center flex"
-          style={{ backgroundImage: `url(${randomPrintedClass.asset.url})` }}
-        >
-          <h1 className="text-white text-[50px] ml-4 self-end h-fit mb-8">
-            {randomPrintedClass.className}
-          </h1>
-        </div>
-      )}
-    </div>
+    <Link to={`/classdetails/${randomPrintedClass.id}`}>
+      <div className="mt-4 drop-shadow-xl relative w-full flex">
+        {randomPrintedClass.asset && (
+          <>
+            <img
+              src={randomPrintedClass.asset.url}
+              className="h-96 rounded-2xl object-cover"
+              alt="cover"
+            />
+            <h1 className="text-white text-[50px] ml-4 absolute bottom-4">
+              {randomPrintedClass.className}
+            </h1>
+          </>
+        )}
+      </div>
+    </Link>
   );
 };
 
