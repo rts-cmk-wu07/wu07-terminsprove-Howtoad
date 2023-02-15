@@ -24,11 +24,9 @@ const RatingClass = ({ classId }) => {
           return (
             <div
               key={i}
-              className={
-                i < rating
-                  ? "w-[20px] h-5 " + "bg-[#F4A88e]"
-                  : "w-[20px] h-5 " + "bg-[#E4E4E4]"
-              }
+              className={`w-[20px] h-5 ${
+                i < rating ? "bg-[#F4A88e]" : "bg-[#E4E4E4]"
+              }`}
             ></div>
           );
         })}
@@ -38,10 +36,3 @@ const RatingClass = ({ classId }) => {
 };
 
 export default RatingClass;
-{
-  /* <div key="1" className="w-[20px] bg-[#F4A88E] h-5"></div>
-        <div key="2" className="w-[20px] bg-[#F4A88E] h-5"></div>
-        <div key="3" className="w-[20px] bg-[#F4A88E] h-5"></div>
-        <div key="4" className="w-[20px] bg-[#F4A88E] h-5"></div>
-        <div key="5" className="w-[20px] bg-slate-200 h-5"></div> */
-}

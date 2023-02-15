@@ -28,12 +28,11 @@ const SmallClass = () => {
       {classes &&
         classes.map((item) => (
           <div key={item.id}>
-            <div
-              key={item.id}
-              className="bg-cover h-44 w-[150px] rounded-xl bg-center mt-10 "
-              style={{ backgroundImage: `url(${item.asset.url})` }}
-            ></div>
-            <div className="max-w-[115px]">
+            <img
+              src={item.asset.url}
+              className="bg-cover h-[150px] w-[150px] rounded-xl bg-center mt-10"
+            ></img>
+            <div className="max-w-[110px]">
               <p className="text-[22px] truncate mt-1">{item.className}</p>
             </div>
             <RatingClass classId={item.id}></RatingClass>
@@ -44,3 +43,5 @@ const SmallClass = () => {
 };
 
 export default SmallClass;
+
+// bg-cover h-44 w-[150px] rounded-xl bg-center mt-10
