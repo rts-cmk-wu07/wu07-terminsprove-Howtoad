@@ -26,7 +26,6 @@ const ClassDetails = () => {
   }, [id]);
 
   const signUpForClass = async () => {
-    console.log(user);
     try {
       const res = await fetch(
         `http://localhost:4000/api/v1/users/${user.userId}/classes/${id}`,
@@ -38,7 +37,7 @@ const ClassDetails = () => {
           },
         }
       );
-
+      console.log(res);
       setButtonText("Leave");
     } catch (error) {
       console.error(error);
@@ -78,7 +77,7 @@ const ClassDetails = () => {
           </div>
           <div className="mx-5 mt-2">
             <h3 className="text-[28px]">Schedule</h3>
-            <Schedule>
+            <Schedule id={data.id}>
               <p className="text-[22px]">{data.classDay}</p>
               <p className="ml-auto text-[22px]">{data.classTime}</p>
             </Schedule>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Login from "./Login";
 import UserContext from "../context/UserContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import Logout from "./Logout";
 const MobileNav = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,7 +45,10 @@ const MobileNav = ({ children }) => {
             <div className="flex flex-col items-center justify-center h-full">
               <div className=" text-[28px] mb-8 mt-32">Home</div>
               <div className=" text-[28px] mb-8">Search</div>
-              <div className=" text-[28px] mb-8">My Schedule</div>
+              <Link to={`/schedule`}>
+                <div className=" text-[28px] mb-8">My Schedule</div>
+              </Link>
+
               {user ? (
                 <Logout />
               ) : (
