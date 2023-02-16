@@ -21,10 +21,12 @@ const Login = ({ isOpen, setIsOpen }) => {
         username,
         password,
       });
-      const { token } = response.data;
+      const { token, userId } = response.data;
+      console.log(response.data);
       setUser({
         username,
         token,
+        userId,
       });
       setIsOpen(false);
     } catch (error) {
