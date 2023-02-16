@@ -2,9 +2,13 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 import { IoTriangle, IoClose } from "react-icons/io5";
 import { useState } from "react";
 import Login from "./Login";
+import UserContext from "../context/UserContext";
+import { useContext } from "react";
+import Logout from "./Logout";
 const MobileNav = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useContext(UserContext);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -41,9 +45,16 @@ const MobileNav = ({ children }) => {
               <div className=" text-[28px] mb-8 mt-32">Home</div>
               <div className=" text-[28px] mb-8">Search</div>
               <div className=" text-[28px] mb-8">My Schedule</div>
-              <div className=" text-[28px]" onClick={() => setIsOpen(true)}>
-                Log in
-              </div>
+              {user ? (
+                <Logout />
+              ) : (
+                <div
+                  className=" text-[28px] mb-8"
+                  onClick={() => setIsOpen(true)}
+                >
+                  Log in
+                </div>
+              )}
             </div>
           </div>
           <Login isOpen={isOpen} setIsOpen={setIsOpen} />
