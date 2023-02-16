@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import ClassDetails from "./components/ClassDetails";
 import SchedulePage from "./pages/SchedulePage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/classdetails/:id" element={<ClassDetails />} />
         <Route path="/schedule" element={<SchedulePage />} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
     </div>
   );
