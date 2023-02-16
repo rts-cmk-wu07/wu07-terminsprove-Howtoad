@@ -44,7 +44,9 @@ const MobileNav = ({ children }) => {
             </div>
             <div className="flex flex-col items-center justify-center h-full">
               <div className=" text-[28px] mb-8 mt-32">Home</div>
-              <div className=" text-[28px] mb-8">Search</div>
+              <Link to={`/search`}>
+                <div className=" text-[28px] mb-8">Search</div>
+              </Link>
               <Link to={`/schedule`}>
                 <div className=" text-[28px] mb-8">My Schedule</div>
               </Link>
