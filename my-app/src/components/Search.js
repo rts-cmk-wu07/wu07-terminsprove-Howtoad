@@ -9,22 +9,37 @@ const Search = ({ setSearchResults }) => {
         const classesResponse = await fetch(
           "http://localhost:4000/api/v1/classes"
         );
-        const classes = await classesResponse.json();
-        console.log(classes);
+        const classesA = await classesResponse.json();
+        const classes = classesA.map((c) => {
+          return { ...c, type: "class" };
+        });
 
         const trainerResponse = await fetch(
           "http://localhost:4000/api/v1/trainers"
         );
-        const trainers = await trainerResponse.json();
-        console.log(trainers);
+        const trainersA = await trainerResponse.json();
+        const trainers = trainersA.map((t) => {
+          return { ...t, type: "trainer" };
+        });
 
         const allResults = [...classes, ...trainers];
 
-        const filteredResults = allResults.filter((result) =>
-          result.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
+        const filteredResults = allResults.filter((result) => {
+          if (!searchQuery) return false;
+          if (result.className) {
+            return result.className
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase());
+          } else if (result.trainerName) {
+            return result.trainerName
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase());
+          }
+          return false;
+        });
 
         setSearchResults(filteredResults);
+        console.log(filteredResults);
       } catch (err) {
         console.log(err);
       }

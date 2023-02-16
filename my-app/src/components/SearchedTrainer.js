@@ -1,7 +1,7 @@
-const SearchedTrainer = () => {
+const SearchedTrainer = ({ trainerResult }) => {
   return (
     <div className="mb-4">
-      <p>{classResult.className}</p>
+      <p>{trainerResult.trainerName}</p>
       {/* Render other relevant trainer information */}
     </div>
   );

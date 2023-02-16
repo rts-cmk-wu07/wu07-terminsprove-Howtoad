@@ -3,6 +3,8 @@ import Search from "../components/Search";
 import SmallClass from "../components/SmallClass";
 import TrainerCard from "../components/TrainerCard";
 import { useState } from "react";
+import SearchedClass from "../components/SearchedClass";
+import SearchedTrainer from "../components/SearchedTrainer";
 
 const SearchPage = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -34,9 +36,9 @@ const SearchPage = () => {
           <h1 className="text-[28px] mt-5">Search Results</h1>
           {searchResults.map((result, index) => {
             if (result.type === "class") {
-              return <SmallClass key={index} class={result.name} />;
+              return <SearchedClass key={index} classResult={result} />;
             } else if (result.type === "trainer") {
-              return <TrainerCard key={index} trainer={result.name} />;
+              return <SearchedTrainer key={index} trainerResult={result} />;
             }
             return null;
           })}
