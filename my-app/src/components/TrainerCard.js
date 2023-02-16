@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-const TrainerCard = ({ trainerId }) => {
+const TrainerCard = ({ trainerId, trainer }) => {
   const [trainerData, setTrainerData] = useState(null);
 
   useEffect(() => {
@@ -26,7 +26,9 @@ const TrainerCard = ({ trainerId }) => {
             alt="trainer"
             className="max-w-[80px] rounded-lg"
           ></img>
-          <p className="ml-6 text-[22px] mt-2">{trainerData.trainerName}</p>
+          <p className="ml-6 text-[22px] mt-2">
+            {trainerData.trainerName || trainer.name}
+          </p>
         </div>
       )}
     </div>
