@@ -1,4 +1,5 @@
-const SearchedClass = () => {
+const SearchedClass = ({ classResult }) => {
+  console.log(classResult);
   return (
     <div className="mb-4">
       <p>{classResult.className}</p>
