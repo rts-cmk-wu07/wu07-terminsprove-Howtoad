@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
-const Search = ({ setSearchResults }) => {
+const Search = ({ setSearchResults, setIsLoading }) => {
   const [searchQuery, setSearchQuery] = useState(null);
 
   useEffect(() => {
@@ -49,7 +49,8 @@ const Search = ({ setSearchResults }) => {
       }
     };
     fetchSearch();
-  }, [searchQuery, setSearchResults]);
+    setIsLoading(false);
+  }, [searchQuery, setSearchResults, setIsLoading]);
 
   return (
     <div className="mt-4">

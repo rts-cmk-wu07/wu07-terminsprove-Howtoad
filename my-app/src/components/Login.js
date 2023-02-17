@@ -22,6 +22,7 @@ const Login = ({ isOpen, setIsOpen }) => {
         password,
       });
       const { token, userId } = response.data;
+      console.log(response.data);
       setUser({
         username,
         token,
