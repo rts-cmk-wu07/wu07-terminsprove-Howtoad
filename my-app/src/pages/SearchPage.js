@@ -12,7 +12,7 @@ const SearchPage = () => {
     <div className="mx-6">
       <MobileNav></MobileNav>
       <Search setSearchResults={setSearchResults}></Search>
-      {searchResults.length === 0 ? (
+      {searchResults === null ? (
         <>
           <div>
             <h1 className="text-[28px] mt-5">Popular Classes</h1>
@@ -31,6 +31,10 @@ const SearchPage = () => {
             </div>
           </div>
         </>
+      ) : searchResults.length === 0 ? (
+        <div className="mt-5">
+          <h1 className="text-[28px]">No results found</h1>
+        </div>
       ) : (
         <div>
           <h1 className="text-[28px] mt-5">Search Results</h1>

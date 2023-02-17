@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 const Search = ({ setSearchResults }) => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(null);
 
   useEffect(() => {
     const fetchSearch = async () => {
@@ -38,7 +38,11 @@ const Search = ({ setSearchResults }) => {
           return false;
         });
 
-        setSearchResults(filteredResults);
+        if (!searchQuery) {
+          setSearchResults(null);
+        } else {
+          setSearchResults(filteredResults);
+        }
         console.log(filteredResults);
       } catch (err) {
         console.log(err);

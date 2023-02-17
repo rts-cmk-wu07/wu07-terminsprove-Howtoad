@@ -2,6 +2,7 @@ import MobileNav from "../components/MobileNav";
 import UserContext from "../context/UserContext";
 import { useContext, useEffect, useState } from "react";
 import Schedule from "../components/Schedule";
+import { Link } from "react-router-dom";
 const SchedulePage = () => {
   const { user } = useContext(UserContext);
   const [data, setData] = useState([]);
@@ -43,9 +44,11 @@ const SchedulePage = () => {
               <p className="text-[22px]">{data.classDay}</p>
               <p className="ml-auto text-[22px]">{data.classTime}</p>
             </Schedule>
-            <div className="border-b-2 border-dotted border-black pb-2 mb-7">
-              <h2 className="text-[28px]">{data.className}</h2>
-            </div>
+            <Link to={`/classdetails/${data.id}`}>
+              <div className="border-b-2 border-dotted border-black pb-2 mb-7">
+                <h2 className="text-[28px]">{data.className}</h2>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
