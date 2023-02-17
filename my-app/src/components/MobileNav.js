@@ -16,12 +16,12 @@ const MobileNav = ({ children }) => {
   return (
     <>
       <div className="flex items-center">
-        <div
-          className="cursor-pointer pt-10"
-          onClick={() => window.history.back()}
-        >
-          <IoTriangle className="text-slight-grey" size={30} />
-        </div>
+        <Link to={"/home"}>
+          <div className="cursor-pointer pt-10">
+            <IoTriangle className="text-slight-grey" size={30} />
+          </div>
+        </Link>
+
         <div className="flex-1 text-center text-gray-700 text-[28px]">
           {children}
         </div>
@@ -43,13 +43,17 @@ const MobileNav = ({ children }) => {
               <IoClose className="text-slight-grey " size={30} />
             </div>
             <div className="flex flex-col items-center justify-center h-full">
-              <div className=" text-[28px] mb-8 mt-32">Home</div>
+              <Link to={`/home`}>
+                <div className=" text-[28px] mb-8 mt-32">Home</div>
+              </Link>
               <Link to={`/search`}>
                 <div className=" text-[28px] mb-8">Search</div>
               </Link>
-              <Link to={`/schedule`}>
-                <div className=" text-[28px] mb-8">My Schedule</div>
-              </Link>
+              {user && (
+                <Link to={`/schedule`}>
+                  <div className=" text-[28px] mb-8">My Schedule</div>
+                </Link>
+              )}
 
               {user ? (
                 <Logout />
