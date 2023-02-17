@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ReactLoading from "react-loading";
 
 const BigClass = () => {
   const [classes, setClasses] = useState([]);
   const [randomPrintedClass, setRandomPrintedClass] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchClasses = async () => {
       try {
@@ -12,6 +15,8 @@ const BigClass = () => {
         setClasses(data);
       } catch (err) {
         console.log(err);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchClasses();
@@ -26,20 +31,24 @@ const BigClass = () => {
 
   return (
     <Link to={`/classdetails/${randomPrintedClass.id}`}>
-      <div className="mt-4 drop-shadow-xl relative w-full flex">
-        {randomPrintedClass.asset && (
-          <>
-            <img
-              src={randomPrintedClass.asset.url}
-              className="h-96 rounded-2xl object-cover"
-              alt="cover"
-            />
-            <h1 className="text-white text-[50px] ml-4 absolute bottom-4">
-              {randomPrintedClass.className}
-            </h1>
-          </>
-        )}
-      </div>
+      {isLoading ? (
+        <ReactLoading type={"bars"} color={"black"} height={50} width={50} />
+      ) : (
+        <div className="mt-4 drop-shadow-xl relative w-full flex">
+          {randomPrintedClass.asset && (
+            <>
+              <img
+                src={randomPrintedClass.asset.url}
+                className="h-96 rounded-2xl object-cover"
+                alt="cover"
+              />
+              <h1 className="text-white text-[50px] ml-4 absolute bottom-4">
+                {randomPrintedClass.className}
+              </h1>
+            </>
+          )}
+        </div>
+      )}
     </Link>
   );
 };

@@ -5,14 +5,24 @@ import TrainerCard from "../components/TrainerCard";
 import { useState } from "react";
 import SearchedClass from "../components/SearchedClass";
 import SearchedTrainer from "../components/SearchedTrainer";
+import ReactLoading from "react-loading";
 
 const SearchPage = () => {
   const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   return (
     <div className="mx-6">
       <MobileNav></MobileNav>
-      <Search setSearchResults={setSearchResults}></Search>
-      {searchResults === null ? (
+      <Search
+        setSearchResults={setSearchResults}
+        setIsLoading={setIsLoading}
+      ></Search>
+      {isLoading ? (
+        <div className="text-center mt-5">
+          <ReactLoading type="spin" color="#000000" />
+          <p>Loading search results...</p>
+        </div>
+      ) : searchResults === null ? (
         <>
           <div>
             <h1 className="text-[28px] mt-5">Popular Classes</h1>
