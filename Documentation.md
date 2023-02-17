@@ -114,7 +114,13 @@ and here are the settings for it
 Yup - Yup is used for creating schema and error messages during a form validation. In this case it only gets used in the login form.
 And last but not least
 an example of how Yup allows me to quickly make required inputs, and add an error message when this requirement is not set. In this case we check for 2 things, strings and empty fields.
+
 <!-- const loginValidation = Yup.object().shape({
     username: Yup.string().required("Username is required"),
     password: Yup.string().required("Password is required"),
   }); -->
+
+Deployment of site to vercel
+https://wu07-terminsprove-howtoad.vercel.app/
+Api on vercel
+https://verceluploadapi.vercel.app/
